@@ -5,6 +5,7 @@
 <!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
     <head>
         <meta charset="utf-8">
+        <meta name="robots" content="noindex">
         <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
         <title></title>
         <meta name="description" content="">
@@ -20,37 +21,60 @@
             <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
         <![endif]-->
         <div id="info">0</div>
+        <div class="scroll-button" onclick="bajar()"></div>
+
         <section id="slide-1">
+          <video id="video-hatun" src="video/hatunkilla.mp4" class="video-hatun" autoplay loop controls></video>
           <div class="bcg" 
-          data-top="background-position-y:0%" 
-          data--500-top="background-position-y: 10%"
+          data-top="opacity:0;background-position-y:0%" 
+          data--1500-top="opacity:0.2;background-position-y: 10%"
+          data--3000-top="opacity:1;background-position-y: 50%"
           data--4500-top="background-position-y: 90%"
+          data--6000-top="background-position-y: 130%"
+          data--7500-top="background-position-y: 170%"
+          data--9000-top="background-position-y: 210%"
+          data--10500-top="background-position-y: 250%"
+          data--12000-top="background-position-y: 290%"
+          data--13500-top="background-position-y: 330%"
+          data--15000-top="background-position-y: 370%"
           data-anchor-target="#slide-1"
-          ></div>
+          >
+
+        </div>
+
+          <!-- Logo -->
+          <div id="logo-hatun">
+          <img src="img/logo-hover.png">
+          </div>
+          <!-- Boton de scroll flecha abajo -->
+          <div id="scroll-button"
+            data-top="opacity:1;"
+            data--875-top="opacity:0.8;"
+            data--1075-top="opacity:0.4;"
+            data--1275-top="opacity:0;"
+            data-anchor-target="#slide-1"
+            
+          >Scroll<img src="img/down.png" class="move" height="40" width="40"></div>
+          
+
 
 
           <div id="scrollBaby"
-            data-top="transform:translateY(0px)"
-            data--875-top="transform:translateY(-300px)"
+            data-top="opacity:0;transform:translateX(0%)"
+            data--3875-top="opacity:1;transform:translateX(100%)"
             data-anchor-target="#slide-1" 
           ></div>
 
           <div id="tree">
-            <div class="item tree1"
+          <!--   <div class="item tree1"
               data-top="opacity: 0.6;left:-50%" 
               data--1500-top="opacity: 0.8; transform: scale(0.7); left: 10%;" 
               data--2500-top="opacity: 1; transform: scale(1); left: 20%;" 
               data--4000-top="opacity: 1; transform: scale(1); left: 30%;" 
               data-anchor-target="#slide-1"     
-            ><img src="img/nubes/clouds.png" style="width:400px;"></div>
-
-            <!--  <div class="item tree1"
-              data-top="opacity: 0;" 
-              data--1600-top="opacity: 0; transform: scale(1); left: 71px;" 
-              data--2000-top="opacity: 1; transform: scale(1); left: 90px;" 
-              data--4000-top="opacity: 1; transform: scale(2); left: 426px;" 
-              data-anchor-target="#slide-1"     
             ><img src="img/nubes/clouds.png" style="width:400px;"></div> -->
+
+           
             
           
           </div>
@@ -73,7 +97,24 @@
             }
           });
 
+          $(window).scroll(scrollWeb);
+           var video = document.getElementById('video-hatun');
+           // var alto = video.videoHeight;
+           var alto = $("#video-hatun").height();
+           // var altoScreen = window.innerHeight;
 
+          function scrollWeb(){
+            if ($(this).scrollTop() > alto){
+               video.pause();
+               video.controls = true;
+            }
+          }
+          function bajar() {
+            $("body,html").animate({
+              scrollTop: 1272
+            },800,"linear" );
+          }
+          
           // var nube = $(".nube").
         </script>
         <!-- Google Analytics: change UA-XXXXX-X to be your site's ID. 
