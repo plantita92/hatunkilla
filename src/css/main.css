@@ -51,6 +51,7 @@ background-position: top;
 }
 #slide-1 .item {position: absolute; top: 0; left: 0;}
 #slide-1 .tree1 {bottom: 400px; left: 100px; top: auto;}
+#slide-1 .tree2 {bottom: 400px; right: 0px; top: auto;}
 
 
 
@@ -74,7 +75,7 @@ background-position: top;
   position: fixed;
   bottom: 5%;
   left: 10%;
-  z-index: 900px;
+  z-index: 9999;
 }
 #logo-hatun:hover{
   background: url("../img/logo.png");
