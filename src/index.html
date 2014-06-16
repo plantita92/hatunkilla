@@ -10,11 +10,19 @@
         <title></title>
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="css/jquery-ui-1.9.2.custom.min.css">
         <link rel="stylesheet" href="css/bootstrap.css">
         <link rel="stylesheet" href="css/bootstrap-theme.min.css">
         <link rel="stylesheet" href="css/main.css">
-
+        
         <script src="js/vendor/modernizr-2.6.2-respond-1.1.0.min.js"></script>
+        <!-- // <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script> -->
+        <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.11.0.min.js"><\/script>')</script>
+        <script src="js/vendor/jquery-ui-1.9.2.custom.min.js"></script>
+        <script src="js/vendor/skrollr.js"></script>
+        <!-- [if lt IE 9]>
+        <script type="text/javascript" src="js/vendor/skrollr.ie.js"></script>
+        <![endif] -->
     </head>
     <body>
         <!--[if lt IE 7]>
@@ -22,6 +30,13 @@
         <![endif]-->
         <div id="info">0</div>
         <div class="scroll-button" onclick="bajar()"></div>
+          <ul id="navegador">
+            <li><a href="">Contacto</a></li>
+            <li><a href="">Contacto</a></li>
+            <li><a href="">Contacto</a></li>
+            <li><a href="">Contacto</a></li>
+            <li><a href="">Contacto</a></li>
+          </ul>
 
         <section id="slide-1">
           <video id="video-hatun" src="video/hatunkilla.mp4" class="video-hatun" autoplay loop controls></video>
@@ -32,11 +47,7 @@
           data--4500-top="background-position-y: 90%"
           data--6000-top="background-position-y: 130%"
           data--7500-top="background-position-y: 170%"
-          data--9000-top="background-position-y: 210%"
-          data--10500-top="background-position-y: 250%"
-          data--12000-top="background-position-y: 290%"
-          data--13500-top="background-position-y: 330%"
-          data--15000-top="background-position-y: 370%"
+         
           data-anchor-target="#slide-1"
           >
 
@@ -53,44 +64,33 @@
            
             data-anchor-target="#slide-1"
             
-          >Scroll<img src="img/down.png" class="move" height="40" width="40"></div>
+          >Bajar<img src="img/down.png" class="move" height="40" width="40"></div>
           
-
-
-
           <div id="scrollBaby"
             data-top="opacity:0;transform:translateX(0%)"
             data--3875-top="opacity:1;transform:translateX(100%)"
+            data--5875-top="opacity:1;transform:translateX(140%)"
             data-anchor-target="#slide-1" 
           ></div>
 
           <div id="tree">
-            <!-- <div class="item tree1"
-              data-top="opacity: 0.6;left:-50%" 
-              data--1500-top="opacity: 0.8; transform: scale(0.7); left: 10%;" 
-              data--2500-top="opacity: 1; transform: scale(1); left: 20%;" 
-              data--4000-top="opacity: 1; transform: scale(1); left: 30%;" 
+            <div class="item tree1"
+              data-top="opacity: 0.8;left:-60%" 
+              data--4000-top="opacity: 1; left: 0%;" 
               data-anchor-target="#slide-1"     
-            ><img src="img/nubegrande.png" style="width:700px;"></div> -->
+            ><img src="img/cloudleft.png" style="width:1500px;"></div>
 
             <div class="item tree2"
               data-top="left:100%;bottom:0;" 
               data--4000-top="left: 10%;bottom:0;" 
               data-anchor-target="#slide-1"     
-            ><img src="img/cloudright1.png" style="width:1500px;"></div>
-            
-          
+            ><img src="img/cloudright.png" style="width:1500px;"></div>
           </div>
-          
-
         </section>
   
 
-        <!-- // <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script> -->
-        <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.11.0.min.js"><\/script>')</script>
-        <script src="js/vendor/skrollr.js"></script>
+        
         <script src="js/vendor/bootstrap.min.js"></script>
-
         <script src="js/main.js"></script>
         <script>
           var s = skrollr.init({
@@ -98,6 +98,7 @@
               //Log the current scroll position.
               $('#info').text(data.curTop);
             }
+            
           });
 
           $(window).scroll(scrollWeb);
@@ -105,20 +106,28 @@
            // var alto = video.videoHeight;
            var alto = $("#video-hatun").height();
            // var altoScreen = window.innerHeight;
-
+         
           function scrollWeb(){
             if ($(this).scrollTop() > alto){
                video.pause();
-               video.controls = true;
+               video.controls = false;
+            }
+            if ($(this).scrollTop() < alto){
+               video.play();
+               video.controls = false;
+            }
+            if ($(this).scrollTop() > 6000){
+              $("#navegador").show("fade");
+            }
+            else{
+               $("#navegador").hide("fade"); 
             }
           }
           function bajar() {
             $("body,html").animate({
               scrollTop: 1272
-            },800,"linear" );
+            },1500,"easeInOutCubic" );
           }
-          
-          // var nube = $(".nube").
         </script>
         <!-- Google Analytics: change UA-XXXXX-X to be your site's ID. 
         <script>

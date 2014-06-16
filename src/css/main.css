@@ -1,4 +1,12 @@
-
+.browsehappy{
+  height: 100%;
+  width: 100%;
+  position: fixed;
+  background: #fff;
+  font-size: 30px;
+  margin: 0 auto;
+  padding: 20%;
+}
 
 /* ==========================================================================
    Author's custom styles
@@ -14,7 +22,7 @@
   z-index: 9999;
 }
 section {
-  height: 15000px;
+  height: 3000px;
 }
 #slide-1 .bcg {
   position: fixed;
@@ -50,7 +58,7 @@ background-position: top;
   height: 100%;
 }
 #slide-1 .item {position: absolute; top: 0; left: 0;}
-#slide-1 .tree1 {bottom: 400px; left: 100px; top: auto;}
+#slide-1 .tree1 {bottom: 0px; left: 0px; top: auto;}
 #slide-1 .tree2 {bottom: 400px; right: 0px; top: auto;}
 
 
@@ -118,7 +126,29 @@ background-position: top;
    to   {left: 500px; -webkit-transform: scale(1.2) rotate(-20deg) }
 }
 
-
+#navegador{
+  position: fixed;
+  z-index: 9999;
+  display: none;
+  bottom: 40px;
+  left: 25%;
+  width: 700px;
+}
+#navegador li{
+  display: inline;
+  
+  padding: 20px;
+}
+#navegador li a{
+  font-family: Aclonica;
+  font-size: 16px;
+  color: #E1E1E1;
+  background: transparent;
+  text-decoration: none;
+}
+#navegador li a:hover{
+  text-shadow: #CACE79 0 0 1em;
+}
 
 
 
